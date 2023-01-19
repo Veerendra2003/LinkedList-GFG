@@ -1,0 +1,94 @@
+/*
+
+EasyAccuracy: 83.21%Submissions: 1,582+Points: 2
+Lamp
+Are You Lost Solving Too Many Random Problems? Try these Problems & Accelerate towards your Goal!
+
+Given a linked list of n nodes and a key , the task is to check if the key is present in the linked list or not.
+
+Example:
+
+Input:
+n = 4
+1->2->3->4
+Key = 3
+Output:
+True
+Explanation:
+3 is present in Linked List, so the function returns true.
+Your Task:
+Your task is to complete the given function searchKey(), which takes a head reference and key as Input and returns true or false boolean value by checking the key is present or not in the linked list.
+
+Constraint:
+1 <= n <= 105
+1 <= key <= 105
+
+Expected Time Complexity: O(n)
+Expected Space Complexity: O(1)*/
+
+===============================================================
+
+SOLUTON IN JAVA:
+====================
+
+//{ Driver Code Starts
+// Initial Template for Java
+
+import java.io.*;
+import java.util.*;
+
+class Node {
+    int data;
+    Node next;
+
+    Node(int x) {
+        data = x;
+        next = null;
+    }
+
+} class GFG {
+    public static void main(String args[]) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while (t > 0) {
+            int n = sc.nextInt();
+            Node head = new Node(sc.nextInt());
+            Node tail = head;
+            for (int i = 0; i < n - 1; i++) {
+                tail.next = new Node(sc.nextInt());
+                tail = tail.next;
+            }
+            int key = sc.nextInt();
+            Solution g = new Solution();
+            boolean ans = g.searchKey(n, head, key);
+            System.out.println(ans ? "1" : "0");
+            // printList(head);
+            t--;
+        }
+    }
+}
+// } Driver Code Ends
+
+
+// User function Template for Java
+
+/* Node of a linked list
+  class Node {
+   int data;
+    Node next;
+    Node(int d)  { data = d;  next = null; }
+}
+*/
+class Solution {
+    static boolean searchKey(int n, Node head, int key) {
+        // Code here
+        Node temp = head;
+        while(temp!=null)
+        {
+            if(temp.data == key)
+            return true;
+            temp = temp.next;
+        }
+        return false;
+    }
+}
